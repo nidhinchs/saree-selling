@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-sm-4">
+
+    <form #sendOtpForm="ngForm" (ngSubmit)="sendOtp(sendOtpForm.value)">
+      <div class="card bg-light m-3 p-3">
+        <div class="form-group">
+          <h5 class="text-capitalize text-center">login</h5>
+          <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input class="form-control" required minlength="8" maxlength="13" [ngModel]="userData.phone"
+                   #phone="ngModel" type="text"
+                   id="phone" name="phone"/>
+            <span class="text-danger" *ngIf="phone.invalid && phone.touched">Mobile Number Field is required</span>
+          </div>
+
+          <div class="row justify-content-center">
+            <button align="center" mat-raised-button color="primary" type="submit" [disabled]="sendOtpForm.invalid">Send
+              OTP
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form #verifyOtpForm="ngForm" (ngSubmit)="verifyOtp(verifyOtpForm.value,sendOtpForm.value.phone)">
+      <div class="card bg-light m-3 p-3">
+        <div class="form-group">
+          <label for="otp">OTP</label>
+          <input class="form-control" pattern="" required [ngModel]="userData.otp" #otp="ngModel"
+                 type="text" id="otp" name="otp"/>
+          <span class="text-danger" *ngIf="otp.invalid && otp.touched">Otp Field is required</span>
+        </div>
+
+        <div class="row justify-content-center">
+          <button align="center" mat-raised-button color="primary" type="submit" [disabled]="verifyOtpForm.invalid">
+            Login
+          </button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<!--//demo for lazy loading of component-->
+<!--<app-header></app-header>-->
+<!--//demo over-->
+
+<nav class="nav text-white mb-3 text-uppercase" [style.backgroundColor]="bg_color">
+  <a class="nav-link active text-white" routerLink="user/home">Home</a>
+  <a class="nav-link text-white" routerLink="user/customer">Customers</a>
+  <a class="nav-link text-white" routerLink="user/invoices">invoices</a>
+  <a class="nav-link text-white" routerLink="user/product">Product</a>
+  <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+</nav>
+
+
+<!--<h1><app-login></app-login></h1>-->
+<!--send and get data to one component to two component-->
+<!--<app-customers
+  [title]="title"
+  (sendEditCustomer)="getEditCustomer($event)"
+></app-customers>-->
+<div class="p-2">
+  <router-outlet></router-outlet>
+</div>
+
+<!--<app-footer></app-footer>-->
+<!--<h1><app-user></app-user></h1>-->
+<!--<h1><app-register></app-register></h1>-->
+
+

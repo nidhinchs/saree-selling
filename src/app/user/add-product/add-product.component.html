@@ -1,0 +1,39 @@
+<div class="container card bg-light p-3">
+  <h4 class="text-dark text-center text-uppercase">add products</h4>
+  <span class="text-black-50 text-capitalize">please download demo file, edit it and upload it here.</span><br>
+  <button mat-flat-button><a href="assets/product.xlsx">Download demo file here</a></button>
+  <br/>
+  <form enctype="multipart/form-data" (ngSubmit)="uploadExcel()" [formGroup]="addProduct">
+
+    <input type="file" id="file" formControlName="file" (change)="onFileChange($event)" accept=".xls, .xlsx">
+    <br><br>
+    <table *ngIf="data.length>0" class="table">
+      <thead>
+      <tr>
+        <th>Product Code</th>
+        <th>Description</th>
+        <th>purchase rate</th>
+        <th>Selling Rate</th>
+        <th>Quantity</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of data">
+        <td>{{product.product_code}}</td>
+        <td>{{product.prod_desc}}</td>
+        <td>{{product.purchase_rate}}</td>
+        <td>{{product.selling_rate}}</td>
+        <td>{{product.qty}}</td>
+        <td>{{product.prod_status}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <mat-progress-bar *ngIf="displaySpinner" mode="indeterminate" color="warn"></mat-progress-bar><br>
+
+    <button mat-flat-button type="submit" value="submit">Upload</button>
+
+  </form>
+
+</div>

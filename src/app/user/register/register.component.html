@@ -1,0 +1,108 @@
+<p>Property bindings!</p>
+
+<div class="col-sm-6 card bg-light">
+  <div class="form-group">
+    <h5 class="text-capitalize text-center">register</h5>
+
+    <form [formGroup]="registerForm" (ngSubmit)="collectData()">
+
+      <div class="form-group">
+        <label>USERNAME</label><br>
+        <input formControlName="email" class="form-control" type="text"/>
+        <span class="text-danger" *ngIf="email.invalid && email.touched">Username Field is required</span>
+      </div>
+
+      <div class="form-group">
+        <label>PASSWORD</label><br>
+        <input formControlName="password" class="form-control" type="password"/>
+        <span class="text-danger" *ngIf="password.invalid && password.touched">Password Field is required</span>
+      </div>
+
+      <button align="center" mat-raised-button color="primary" type="submit">Login</button>
+
+    </form>
+
+
+  </div>
+</div>
+<!--
+
+&lt;!&ndash;Bind a property with html element&ndash;&gt;
+&lt;!&ndash;lets take 2 text box&ndash;&gt;
+&lt;!&ndash;try to enable&ndash;&gt;
+&lt;!&ndash;find difference btwn propery binding and interpolation&ndash;&gt;
+
+<input type="text" [disabled]="disabledBox" [value]="name"/>
+&lt;!&ndash;can not handle disabled with interpolation&ndash;&gt;
+<input type="text" disabled={{disabledBox}} value="{{name}}"/>
+
+<button (click)="enableBoth()">Enable Textbox</button>
+
+conditions in angular
+
+&lt;!&ndash;make if condition&ndash;&gt;
+&lt;!&ndash;make if else&ndash;&gt;
+&lt;!&ndash;condition with string&ndash;&gt;
+&lt;!&ndash;else if&ndash;&gt;
+&lt;!&ndash;condition with property binding&ndash;&gt;
+
+<h4 *ngIf="show else elseblock"> if block</h4>
+<ng-template #elseblock>
+  <h1>else block</h1>
+</ng-template>
+<ng-template #ifblock>
+  <h1>if block</h1>
+</ng-template>
+
+<h4 *ngIf="
+showWithString=='yes';
+then ifblock
+ else elseblock
+">if with string</h4>
+
+<ng-template [ngIf]="showWithString=='red'">RED BLOCK</ng-template>
+<ng-template [ngIf]="showWithString=='blue'">BLUE BLOCK</ng-template>
+<ng-template [ngIf]="showWithString=='green'">GREEN BLOCK</ng-template><br><br>
+
+
+
+switch case in angular
+
+&lt;!&ndash;make a property for color&ndash;&gt;
+&lt;!&ndash;show data&ndash;&gt;
+<div [ngSwitch]="color">
+  <h2 *ngSwitchCase="'red'" style="color: red">RED COLOR</h2>
+  <h2 *ngSwitchCase="'green'" style="color: green">green COLOR</h2>
+  <h2 *ngSwitchCase="'blue'" style="color: blue">blue COLOR</h2>
+  <h2 *ngSwitchCase="'syan'" style="color: rosybrown">syan COLOR</h2>
+  <h2 *ngSwitchCase="'yellow'" style="color: yellow">yellow COLOR</h2>
+
+</div><br><br>
+
+for loop in angular
+
+<h5 *ngFor="let item of data">{{item}}</h5>
+
+
+<table border="1">
+  <tr>
+    <td>Name</td>
+    <td>Age</td>
+  </tr>
+  <tr *ngFor="let item of data1">
+    <td>{{item.name}}</td>
+    <td>{{item.age}}</td>
+  </tr>
+</table>
+<h5 *ngFor="let item of data1">{{item}}</h5>
+
+
+
+
+
+
+
+-->
+
+
+

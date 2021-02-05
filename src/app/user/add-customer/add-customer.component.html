@@ -1,0 +1,50 @@
+<h6 class="text-capitalize text-center text-info">add customer</h6>
+<div class="container">
+
+  <div *ngIf="error" class="alert alert-danger alert-dismissible text-capitalize">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="success" class="alert alert-success alert-dismissible text-capitalize fade show">
+    {{success}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row justify-content-center" style="overflow-x: auto">
+    <div class="col-sm-6 card bg-light p-3">
+      <form [formGroup]="addCustomer" (ngSubmit)="collectCustomer()">
+        <div class="form-group">
+          <label>Name *</label>
+          <input type="text" class="form-control" aria-describedby="name" placeholder="Enter Name"
+                 ng-model="customer.cust_name" formControlName="cust_name">
+        </div>
+        <div class="form-group">
+          <label >Contact Number *</label>
+          <input type="tel" class="form-control" formControlName="cust_phone"  aria-describedby="phone"
+                 placeholder="Enter Contact Number" ng-model="customer.cust_phone">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" formControlName="cust_email" id="email" aria-describedby="emailHelp"
+                 placeholder="Enter email" ng-model="customer.cust_email">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+               else.</small>-->
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="address" class="form-control" formControlName="cust_address" id="address" aria-describedby="emailHelp"
+                 placeholder="Enter address" ng-model="customer.cust_address">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+               else.</small>-->
+        </div>
+        <div class="row justify-content-center">
+          <button type="submit" class="btn btn-primary form-group text-center">Submit</button>
+        </div>
+        <!--                <p>{{customer | json }}</p>-->
+      </form>
+    </div>
+  </div>
+</div>
